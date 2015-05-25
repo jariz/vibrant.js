@@ -2,7 +2,9 @@ document.addEventListener 'DOMContentLoaded', ->
   examples = document.querySelectorAll '.examples > div'
 
   for example in examples
-    example.querySelector('img').addEventListener 'load', (e) ->
+    img = example.querySelector('img')
+    img.setAttribute('src', img.getAttribute('data-src'))
+    img.addEventListener 'load', (e) ->
       vibrant = new Vibrant this
       panel = e.target.parentElement
       panel = panel.parentElement while not panel.classList.contains('panel')
