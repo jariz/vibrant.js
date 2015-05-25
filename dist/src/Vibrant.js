@@ -625,7 +625,7 @@ module.exports = MMCQ.quantize
         colorCount = 64;
       }
       if (typeof quality === 'undefined') {
-        quality = 10;
+        quality = 5;
       }
       image = new CanvasImage(sourceImage);
       imageData = image.getImageData();
@@ -716,7 +716,7 @@ module.exports = MMCQ.quantize
       return max;
     };
 
-    Vibrant.prototype.createComparisonValue = function(saturation, targetSaturation, saturationWeight, luma, targetLuma, lumaWeight, population, maxPopulation, populationWeight) {
+    Vibrant.prototype.createComparisonValue = function(saturation, targetSaturation, luma, targetLuma, population, maxPopulation) {
       return this.weightedMean(this.invertDiff(saturation, targetSaturation), this.WEIGHT_SATURATION, this.invertDiff(luma, targetLuma), this.WEIGHT_LUMA, population / maxPopulation, this.WEIGHT_POPULATION);
     };
 

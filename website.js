@@ -1,11 +1,13 @@
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
-    var example, examples, i, len, results;
+    var example, examples, i, img, len, results;
     examples = document.querySelectorAll('.examples > div');
     results = [];
     for (i = 0, len = examples.length; i < len; i++) {
       example = examples[i];
-      results.push(example.querySelector('img').addEventListener('load', function(e) {
+      img = example.querySelector('img');
+      img.setAttribute('src', img.getAttribute('data-src'));
+      results.push(img.addEventListener('load', function(e) {
         var color, colorHolder, colorName, colors, j, len1, panel, profile, profileName, profiles, results1, vibrant;
         vibrant = new Vibrant(this);
         panel = e.target.parentElement;
