@@ -100,7 +100,7 @@ window.Vibrant = class Vibrant
       a = pixels[offset + 3]
       # If pixel is mostly opaque and not white
       if a >= 125
-        if !(r > 250 and g > 250 and b > 250)
+        if not (r > 250 and g > 250 and b > 250)
           allPixels.push [r, g, b]
       i = i + quality
 

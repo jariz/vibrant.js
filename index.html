@@ -82,7 +82,7 @@ img.addEventListener('load', function() {
         if (swatches.hasOwnProperty(swatch) && swatches[swatch])
             console.log(swatch, swatches[swatch].getHex())
 
-    /**
+    /*
      * Results into:
      * Vibrant #7a4426
      * Muted #7b9eae
@@ -92,7 +92,7 @@ img.addEventListener('load', function() {
      */
 });
         </pre>
-        <p>As you can see, Vibrant's first argument is an image, make sure it's loaded before passing it off to Vibrant.<br>Vibrant has 3 constructor parameters:</p>
+        <p>As you can see, Vibrant's first argument is an image. Make sure it's loaded before passing it off to Vibrant.<br>Vibrant has 3 constructor parameters:</p>
         <pre class="prettyprint">
 new Vibrant(
     img,
@@ -100,6 +100,54 @@ new Vibrant(
     10 /* quality. 0 is highest, but takes way more processing. defaults to 10. */
 )
         </pre>
+        <h4 style="margin-top:20px">The Swatch class</h4>
+        <p>Vibrant.swatch() returns a object with Swatch objects.
+            <br><strong>Note that some Swatches might be set to 'undefined' when Vibrant fails to find a matching color for the profile!</strong>
+            <br>A Swatch can be used to get the swatch's color (in RGB and hex), what text color works best with this color, and more.</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Function name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>new Swatch()</td>
+                <td>Initialize a new swatch. First argument needs to be an RGB array, second argument must be the swatch' population.</td>
+            </tr>
+            <tr>
+                <td>.getRgb()</td>
+                <td>Get swatch color in a RGB array</td>
+            </tr>
+            <tr>
+                <td>.getHex()</td>
+                <td>Get swatch color in hex format (#EE22DD)</td>
+            </tr>
+            <tr>
+                <td>.getHsl()</td>
+                <td>Get swatch color in a HSL array</td>
+            </tr>
+            <tr>
+                <td>.getPopulation()</td>
+                <td>Get population (amount of times this color was used in the original image)</td>
+            </tr>
+            <tr>
+                <td>.getTitleTextColor()</td>
+                <td>Get a color (in hex) that works best with any 'title' text that is used over this swatch's color</td>
+            </tr>
+            <tr>
+                <td>.getBodyTextColor()</td>
+                <td>Get a color (in hex) that works best with any 'body' text that is used over this swatch's color</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="well-material-light-green footer">
+        <div class="container">
+            <div class="pull-left">Another one of <a href="http://jari.io/">Jari's</a> weird projects.</div>
+            <div class="pull-right">Like material design? <a href="http://tabbie.io">Check out Tabbie!</a></div>
+        </div>
     </div>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
 </body>
