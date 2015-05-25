@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="dist/src/Vibrant.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="website.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-white navbar-fixed">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Vibrant.js</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <button type="button" class="btn btn-success btn-raised navbar-btn">Get it</button>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Vibrant.js</h1>
+        <p>Extract prominent colors from an image.<br>Vibrant.js is a javascript port of the <a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html">awesome Palette class</a> in the Android support library.</p>
+        <p>Vibrant also takes care of your text color.</p>
+
+        <h3 id="showcase">Showcase</h3>
+        <div class="row examples">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <img src="examples/3.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <img src="examples/4.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row examples">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <img src="examples/2.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <img src="examples/1.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>API</h3>
+        <p>Use of Vibrant is pretty straight forward, but because code works better than explanation, here's an example:</p>
+
+        <!--<a class="btn btn-raised pull-right btn-success">Run</a>-->
+        <pre class="prettyprint">
+var img = document.createElement('img');
+img.setAttribute('src', 'examples/octocat.png')
+
+img.addEventListener('load', function() {
+    var vibrant = new Vibrant(img);
+    var swatches = vibrant.swatches()
+    for (swatch in swatches)
+        if (swatches.hasOwnProperty(swatch) && swatches[swatch])
+            console.log(swatch, swatches[swatch].getHex())
+
+    /**
+     * Results into:
+     * Vibrant #7a4426
+     * Muted #7b9eae
+     * DarkVibrant #348945
+     * DarkMuted #141414
+     * LightVibrant #f3ccb4
+     */
+});
+        </pre>
+        <p>As you can see, Vibrant's first argument is an image, make sure it's loaded before passing it off to Vibrant.<br>Vibrant has 3 constructor parameters:</p>
+        <pre class="prettyprint">
+new Vibrant(
+    img,
+    64, /* amount of colors in initial palette from which the swatches will be generated, defaults to 64 */
+    10 /* quality. 0 is highest, but takes way more processing. defaults to 10. */
+)
+        </pre>
+    </div>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+</body>
+</html>
