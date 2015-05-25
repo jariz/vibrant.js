@@ -83,7 +83,7 @@ window.Vibrant = class Vibrant
     if typeof colorCount == 'undefined'
       colorCount = 64
     if typeof quality == 'undefined'
-      quality = 10
+      quality = 5
 
     image = new CanvasImage(sourceImage)
     imageData = image.getImageData()
@@ -176,9 +176,8 @@ window.Vibrant = class Vibrant
 
     max
 
-  createComparisonValue: (saturation, targetSaturation, saturationWeight,
-      luma, targetLuma, lumaWeight,
-        population, maxPopulation, populationWeight) ->
+  createComparisonValue: (saturation, targetSaturation,
+      luma, targetLuma, population, maxPopulation) ->
     @weightedMean(
       @invertDiff(saturation, targetSaturation), @WEIGHT_SATURATION,
       @invertDiff(luma, targetLuma), @WEIGHT_LUMA,
