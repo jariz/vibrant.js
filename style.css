@@ -19,3 +19,13 @@
     margin-right:25px;
     margin-bottom: 5px;
 }
+
+.footer {
+    padding-top:20px;
+    padding-bottom:20px;
+    color:#fff;
+}
+
+.footer a {
+    color: #E0F2F1;
+}
