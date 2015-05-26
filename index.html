@@ -2,12 +2,20 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
-    <script src="dist/src/Vibrant.js"></script>
+    <title>Vibrant.js - Extract prominent colors from an image.</title>
+    <script src="dist/Vibrant.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <script src="website.js"></script>
+
+    <!-- Open graph metadata -->
+    <meta property="og:title" content="Vibrant"/>
+    <meta property="og:url" content="https://jariz.github.io/vibrant.js/"/>
+    <meta property="og:image" content="https://jariz.github.io/vibrant.js/examples/og.png"/>
+    <meta property="og:site_name" content="Vibrant"/>
+    <meta property="og:description" content="Extract prominent colors from an image."/>
+    <meta property="og:type" content="website"/>
 </head>
 <body>
     <div class="navbar navbar-white navbar-fixed">
@@ -18,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Vibrant.js</a>
+                <a class="navbar-brand" href="http://jariz.github.io/vibrant.js/">Vibrant.js</a>
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -97,7 +105,7 @@ img.addEventListener('load', function() {
 new Vibrant(
     img,
     64, /* amount of colors in initial palette from which the swatches will be generated, defaults to 64 */
-    10 /* quality. 0 is highest, but takes way more processing. defaults to 10. */
+    5 /* quality. 0 is highest, but takes way more processing. defaults to 5. */
 )
         </pre>
         <h4 style="margin-top:20px">The Swatch class</h4>
