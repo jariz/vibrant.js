@@ -40,7 +40,3 @@ gulp.task 'closure', ->
 
 gulp.task 'watch', ->
   gulp.watch ['**/*.coffee'], ['scripts']
-
-gulp.task 'default', [
-  'scripts'
-]
