@@ -39,4 +39,4 @@ gulp.task 'closure', ->
   .pipe(gulp.dest('dist'));
 
 gulp.task 'watch', ->
-  gulp.watch ['**/*.coffee'], ['scripts']
+  gulp.watch ['**/*.coffee'], ['default']
