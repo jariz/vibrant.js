@@ -1,7 +1,7 @@
 {
-  "name": "vibrant.js",
+  "name": "vibrant",
   "main": "dist/Vibrant.js",
-  "version": "0.1",
+  "version": "1.0.0",
   "authors": [
     "Jari Zwarts <jarizw@gmail.com>"
   ],
@@ -29,5 +29,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "closure-compiler": "~0.2.6"
+  }
 }

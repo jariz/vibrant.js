@@ -3,6 +3,8 @@ coffee = require 'gulp-coffee'
 browserify = require 'browserify'
 runSequence = require 'run-sequence'
 source = require 'vinyl-source-stream'
+del = require 'del'
+closureCompiler = require 'gulp-closure-compiler'
 
 gulp.task 'coffee', ->
   gulp.src('*.coffee')
@@ -18,11 +20,23 @@ gulp.task 'browserify', ->
     entries: 'src/Vibrant.js'
   )
     .bundle()
-    .pipe(source('src/Vibrant.js'))
+    .pipe(source('Vibrant.js'))
     .pipe(gulp.dest('dist'))
 
-gulp.task 'scripts', ->
-  runSequence('coffee', 'browserify')
+gulp.task 'default', ->
+  runSequence 'coffee', 'browserify', 'cleanup', 'closure'
+
+gulp.task 'cleanup', (cb) ->
+  del ['src/Vibrant.js'], cb
+
+gulp.task 'closure', ->
+  gulp.src('dist/Vibrant.js')
+  .pipe(closureCompiler(
+      compilerPath: 'bower_components/closure-compiler/lib/vendor/compiler.jar',
+      fileName: 'Vibrant.min.js',
+      continueWithWarnings: true
+    ))
+  .pipe(gulp.dest('dist'));
 
 gulp.task 'watch', ->
   gulp.watch ['**/*.coffee'], ['scripts']
