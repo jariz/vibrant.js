@@ -21,5 +21,6 @@ See our [releases](https://github.com/jariz/vibrant.js/releases/)
 3. Done. Optionally run `gulp watch` for automatic compiling.
 
 ##Other cool stuff
-Check out [Tabbie](http://github.com/jariz/tabbie), the fully customisable open source material new tab page, with all your favorite websites and services!  
+Check out [Tabbie](http://github.com/jariz/tabbie), the fully customisable material new tab page, with all your favorite websites and services!  
+
 [![](https://cloud.githubusercontent.com/assets/1415847/7971420/f3dec05a-0a44-11e5-8ecb-fcac49e91f50.png)](http://github.com/jariz/tabbie)
