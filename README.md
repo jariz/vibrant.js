@@ -12,6 +12,9 @@ See the website: http://jariz.github.io/vibrant.js/
 `bower install vibrant`
 ####Download
 See our [releases](https://github.com/jariz/vibrant.js/releases/)
+####npm
+`npm install node-vibrant`  
+This is a node compatible version made by [AKFish](https://github.com/akfish), [more info & docs](https://github.com/akfish/node-vibrant).
 
 ##Building
 1. `npm install`
