@@ -48,7 +48,7 @@ window.Swatch = class Swatch
 window.Vibrant = class Vibrant
 
   quantize: require('quantize')
-  
+
   _swatches: []
 
   TARGET_DARK_LUMA: 0.26
@@ -78,7 +78,7 @@ window.Vibrant = class Vibrant
   LightMutedSwatch: undefined
 
   HighestPopulation: 0
-  
+
   constructor: (sourceImage, colorCount, quality) ->
     if typeof colorCount == 'undefined'
       colorCount = 64
@@ -86,35 +86,37 @@ window.Vibrant = class Vibrant
       quality = 5
 
     image = new CanvasImage(sourceImage)
-    imageData = image.getImageData()
-    pixels = imageData.data
-    pixelCount = image.getPixelCount()
+    try
+      imageData = image.getImageData()
+      pixels = imageData.data
+      pixelCount = image.getPixelCount()
 
-    allPixels = []
-    i = 0
-    while i < pixelCount
-      offset = i * 4
-      r = pixels[offset + 0]
-      g = pixels[offset + 1]
-      b = pixels[offset + 2]
-      a = pixels[offset + 3]
-      # If pixel is mostly opaque and not white
-      if a >= 125
-        if not (r > 250 and g > 250 and b > 250)
-          allPixels.push [r, g, b]
-      i = i + quality
+      allPixels = []
+      i = 0
+      while i < pixelCount
+        offset = i * 4
+        r = pixels[offset + 0]
+        g = pixels[offset + 1]
+        b = pixels[offset + 2]
+        a = pixels[offset + 3]
+        # If pixel is mostly opaque and not white
+        if a >= 125
+          if not (r > 250 and g > 250 and b > 250)
+            allPixels.push [r, g, b]
+        i = i + quality
 
-    cmap = @quantize allPixels, colorCount
-    @_swatches = cmap.vboxes.map (vbox) =>
-      new Swatch vbox.color, vbox.vbox.count()
+      cmap = @quantize allPixels, colorCount
+      @_swatches = cmap.vboxes.map (vbox) =>
+        new Swatch vbox.color, vbox.vbox.count()
 
-    @maxPopulation = @findMaxPopulation
+      @maxPopulation = @findMaxPopulation
 
-    @generateVarationColors()
-    @generateEmptySwatches()
+      @generateVarationColors()
+      @generateEmptySwatches()
 
     # Clean up
-    image.removeCanvas()
+    finally
+      image.removeCanvas()
 
   generateVarationColors: ->
     @VibrantSwatch = @findColorVariation(@TARGET_NORMAL_LUMA, @MIN_NORMAL_LUMA, @MAX_NORMAL_LUMA,
@@ -160,7 +162,7 @@ window.Vibrant = class Vibrant
   findColorVariation: (targetLuma, minLuma, maxLuma, targetSaturation, minSaturation, maxSaturation) ->
     max = undefined
     maxValue = 0
-    
+
     for swatch in @_swatches
       sat = swatch.getHsl()[1];
       luma = swatch.getHsl()[2]
@@ -183,7 +185,7 @@ window.Vibrant = class Vibrant
       @invertDiff(luma, targetLuma), @WEIGHT_LUMA,
       population / maxPopulation, @WEIGHT_POPULATION
     )
-        
+
   invertDiff: (value, targetValue) ->
     1 - Math.abs value - targetValue
 
