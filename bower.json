@@ -1,7 +1,6 @@
 {
   "name": "vibrant",
   "main": "dist/Vibrant.js",
-  "version": "1.0.0",
   "authors": [
     "Jari Zwarts <jarizw@gmail.com>"
   ],
