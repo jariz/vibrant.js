@@ -12,7 +12,7 @@
     "gulp": "^3.8.11",
     "gulp-closure-compiler": "^0.2.19",
     "gulp-coffee": "^2.3.1",
-    "quantize": "^1.0.1",
+    "quantize": "^1.0.2",
     "run-sequence": "^1.1.0",
     "vinyl-source-stream": "^1.1.0",
     "del": "^1.2.0"
