@@ -207,7 +207,7 @@ window.Vibrant = class Vibrant
       DarkVibrant: @DarkVibrantSwatch
       DarkMuted: @DarkMutedSwatch
       LightVibrant: @LightVibrantSwatch
-      LightMuted: @LightMuted
+      LightMuted: @LightMutedSwatch
 
 
   isAlreadySelected: (swatch) ->
