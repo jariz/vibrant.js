@@ -29,7 +29,5 @@
     "tests"
   ],
   "dependencies": {},
-  "devDependencies": {
-    "closure-compiler": "~0.2.6"
-  }
+  "devDependencies": {}
 }
