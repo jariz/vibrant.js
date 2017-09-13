@@ -4,7 +4,7 @@ browserify = require 'browserify'
 runSequence = require 'run-sequence'
 source = require 'vinyl-source-stream'
 del = require 'del'
-closureCompiler = require 'gulp-closure-compiler'
+closureCompiler = (require 'google-closure-compiler').gulp()
 
 gulp.task 'coffee', ->
   gulp.src('*.coffee')
@@ -32,9 +32,7 @@ gulp.task 'cleanup', (cb) ->
 gulp.task 'closure', ->
   gulp.src('dist/Vibrant.js')
   .pipe(closureCompiler(
-      compilerPath: 'bower_components/closure-compiler/lib/vendor/compiler.jar',
-      fileName: 'Vibrant.min.js',
-      continueWithWarnings: true
+      js_output_file: 'Vibrant.min.js'
     ))
   .pipe(gulp.dest('dist'));
 

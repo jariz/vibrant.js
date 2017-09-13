@@ -78,3 +78,5 @@ build/Release
 node_modules
 
 bower_components
+gulpfile.js
+website.js
