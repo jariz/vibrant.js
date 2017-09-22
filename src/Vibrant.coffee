@@ -145,14 +145,52 @@ window.Vibrant = class Vibrant
         hsl = @DarkVibrantSwatch.getHsl()
         hsl[2] = @TARGET_NORMAL_LUMA
         @VibrantSwatch = new Swatch Vibrant.hslToRgb(hsl[0], hsl[1], hsl[2]), 0
+      else
+      if @LightVibrantSwatch isnt undefined
+        # ...or we do have a light vibrant, generate the value by modifying the luma
+        hsl = @LightVibrantSwatch.getHsl()
+        hsl[2] = @TARGET_NORMAL_LUMA
+        @VibrantSwatch = new Swatch Vibrant.hslToRgb(hsl[0], hsl[1], hsl[2]), 0
 
     if @DarkVibrantSwatch is undefined
-      # If we do not have a vibrant color...
+      # If we do not have a dark vibrant color...
       if @VibrantSwatch isnt undefined
-        # ...but we do have a dark vibrant, generate the value by modifying the luma
+        # ...but we do have a vibrant, generate the value by modifying the luma
         hsl = @VibrantSwatch.getHsl()
         hsl[2] = @TARGET_DARK_LUMA
         @DarkVibrantSwatch = new Swatch Vibrant.hslToRgb(hsl[0], hsl[1], hsl[2]), 0
+
+    if @LightVibrantSwatch is undefined
+      # If we do not have a light vibrant color...
+      if @VibrantSwatch isnt undefined
+        # ...but we do have a vibrant, generate the value by modifying the luma
+        hsl = @VibrantSwatch.getHsl()
+        hsl[2] = @TARGET_LIGHT_LUMA
+        @LightVibrantSwatch = new Swatch Vibrant.hslToRgb(hsl[0], hsl[1], hsl[2]), 0
+
+    if @MutedSwatch is undefined
+      # If we do not have a muted color...
+      if @VibrantSwatch isnt undefined
+        # ...but we do have a vibrant, generate the value by modifying the saturation
+        hsl = @VibrantSwatch.getHsl()
+        hsl[1] = @TARGET_MUTED_SATURATION
+        @MutedSwatch = new Swatch Vibrant.hslToRgb(hsl[0], hsl[1], hsl[2]), 0
+
+    if @DarkMutedSwatch is undefined
+      # If we do not have a dark muted color...
+      if @DarkVibrantSwatch isnt undefined
+        # ...but we do have a dark vibrant, generate the value by modifying the saturation
+        hsl = @DarkVibrantSwatch.getHsl()
+        hsl[1] = @TARGET_MUTED_SATURATION
+        @DarkMutedSwatch = new Swatch Vibrant.hslToRgb(hsl[0], hsl[1], hsl[2]), 0
+
+    if @LightMutedSwatch is undefined
+      # If we do not have a light muted color...
+      if @LightVibrantSwatch isnt undefined
+        # ...but we do have a light vibrant, generate the value by modifying the saturation
+        hsl = @LightVibrantSwatch.getHsl()
+        hsl[1] = @TARGET_MUTED_SATURATION
+        @LightMutedSwatch = new Swatch Vibrant.hslToRgb(hsl[0], hsl[1], hsl[2]), 0
 
   findMaxPopulation: ->
     population = 0
