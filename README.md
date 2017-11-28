@@ -4,6 +4,14 @@ Vibrant.js is a javascript port of the [awesome Palette class](https://developer
 
 ![](https://i.imgur.com/AxfT7hM.png)
 
+## ⚠️ THIS REPO IS DEPRECATED ⚠️
+
+Please file issues over on the [node-vibrant](https://github.com/akfish/node-vibrant/) repo, this repo is kept solely for historical reasons, but ongoing development will happen over there.
+Despite node-vibrant's name, it works with both node and the browser (with and without UMD support).
+**It is highly recommended you use that project over this one.**
+
+### [Link to node-vibrant](https://github.com/akfish/node-vibrant/)
+
 ## Demo & usage docs
 See the website: http://jariz.github.io/vibrant.js/
 
