@@ -750,7 +750,7 @@ module.exports = MMCQ.quantize
         DarkVibrant: this.DarkVibrantSwatch,
         DarkMuted: this.DarkMutedSwatch,
         LightVibrant: this.LightVibrantSwatch,
-        LightMuted: this.LightMuted
+        LightMuted: this.LightMutedSwatch
       };
     };
 

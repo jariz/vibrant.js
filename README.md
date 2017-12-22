@@ -26,9 +26,7 @@ This is a node compatible version made by [AKFish](https://github.com/akfish), [
 
 ## Building
 1. `npm install`
-1. `bower install`
-1. Compile gulpfile: `coffee -c gulpfile.coffee`
-2. `gulp`
+1. `npm run build`
 3. Done. Optionally run `gulp watch` for automatic compiling.
 
 ## Other cool stuff
